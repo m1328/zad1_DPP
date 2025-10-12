@@ -8,19 +8,21 @@ print(is_palindrome("Kaja k"))
 
 # funkcja 2:
 def fibonacci(n):
-    fib_sequence = [0, 1]
-    for i in range(2, n):
-        fib_sequence.append(fib_sequence[i - 1] + fib_sequence[i - 2])
-    return fib_sequence[n-1]
+    if n < 0:
+        return None
+    if n in (0, 1):
+        return n
+    a, b = 0, 1
+    for _ in range(2, n + 1):
+        a, b = b, a + b
+    return b
 
 print(fibonacci(5))
 
-# funkcja 3:
 def count_vowels(text):
     suma = 0
-    text = text.lower()
     for letter in text:
-        if letter in "aeiouy":
+        if letter in "aąeęiouóy" or letter in "AĄEĘIOÓUY":
             suma += 1
     return suma
 
@@ -71,5 +73,6 @@ def is_prime(n):
 print(is_prime(8))
 print(is_prime(9))
 print(is_prime(3))
+print(is_prime(5))
 
 

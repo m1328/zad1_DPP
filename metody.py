@@ -6,6 +6,7 @@ def is_palindrome(word):
 
 print(is_palindrome("Kaja k"))
 
+
 # funkcja 2:
 def fibonacci(n):
     fib_sequence = [0, 1]
@@ -13,7 +14,9 @@ def fibonacci(n):
         fib_sequence.append(fib_sequence[i - 1] + fib_sequence[i - 2])
     return fib_sequence[n-1]
 
+
 print(fibonacci(5))
+
 
 # funkcja 3:
 def count_vowels(text):
@@ -27,6 +30,7 @@ def count_vowels(text):
 
 print(count_vowels("Ala"))
 
+
 # funkcja 4:
 def calculate_discount(price, discount):
     if discount > 1 or discount < 0:
@@ -34,6 +38,7 @@ def calculate_discount(price, discount):
     return price * (1-discount)
 
 print(calculate_discount(100,0.2))
+
 
 # funkcja 5:
 def flatten_list(nested_list):
@@ -45,7 +50,9 @@ def flatten_list(nested_list):
             flat_list.append(item)
     return flat_list
 
+
 print(flatten_list([1, [2, 3], [4, [5]]]))
+
 
 # funkcja 6:
 def word_frequencies(text):
@@ -57,9 +64,11 @@ def word_frequencies(text):
         words_dict[word] = words_dict.get(word, 0) + 1
     return words_dict
 
+
 print(word_frequencies("Tekst, tekst! Ala ma kota. Ala? KOTA!!! Ala ala"))
 
-#funkcja 7:
+
+# funkcja 7:
 def is_prime(n):
     if n<2:
         return False
@@ -67,6 +76,7 @@ def is_prime(n):
         if n % i ==0:
             return False
     return True
+
 
 print(is_prime(8))
 print(is_prime(9))

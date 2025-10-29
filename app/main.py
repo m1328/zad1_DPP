@@ -1,7 +1,8 @@
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 from .db import engine, Base, get_db
-from . import models, schemas
+from . import schemas
+from .models import Movie, Link, Rating, Tag
 
 Base.metadata.create_all(bind=engine)
 
@@ -15,19 +16,19 @@ def root():
 
 @app.get("/movies", response_model=list[schemas.MovieOut])
 def list_movies(db: Session = Depends(get_db)):
-    return db.query(models.Movie).all()
+    return db.query(Movie).all()
 
 
 @app.get("/links", response_model=list[schemas.LinkOut])
 def list_links(db: Session = Depends(get_db)):
-    return db.query(models.Link).all()
+    return db.query(Link).all()
 
 
 @app.get("/ratings", response_model=list[schemas.RatingOut])
 def list_ratings(db: Session = Depends(get_db)):
-    return db.query(models.Rating).all()
+    return db.query(Rating).all()
 
 
 @app.get("/tags", response_model=list[schemas.TagOut])
 def list_tags(db: Session = Depends(get_db)):
-    return db.query(models.Tag).all()
+    return db.query(Tag).all()
